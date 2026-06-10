@@ -2,7 +2,7 @@ function rotated90Degree(mat) {
   let n = mat.length;
   // let res = Array.from({length:n},()=>Array(n).fill(0))
   let res = [];
-  for(let i=0;i<n;i++){
+  for (let i = 0; i < n; i++) {
     res.push([]);
   }
   for (let i = 0; i < mat.length; i++) {
