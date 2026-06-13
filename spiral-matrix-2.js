@@ -1,37 +1,41 @@
-function spiralMarix2(mat) {
+function spiralMatrix2(mat) {
+  if (!mat || mat.length === 0 || mat[0].length === 0) {
+    return []
+  }
+
   let top = 0;
   let right = mat[0].length - 1;
   let bottom = mat.length - 1;
   let left = 0;
-  let res = [];
+  let result = [];
 
   while (top <= bottom && left <= right) {
-    for (let i = top; i <=right; i++) {
-      res.push(mat[top][i]);
+    for (let col = top; col <= right; col++) {
+      result.push(mat[top][col]);
     }
     top++;
-    for (let j = top; j <= bottom; j++) {
-      res.push(mat[j][right]);
+    for (let row = top; row <= bottom; row++) {
+      result.push(mat[row][right]);
     }
     right--;
     if (bottom >= top) {
-      for (let i = right; i >= left; i--) {
-        res.push(mat[bottom][i]);
+      for (let col = right; col >= left; col--) {
+        result.push(mat[bottom][col]);
       }
       bottom--;
     }
     if (left <= right) {
-      for (let i = bottom; i >= top; i--) {
-        res.push(mat[i][left]);
+      for (let row = bottom; row >= top; row--) {
+        result.push(mat[row][left]);
       }
       left++;
     }
   }
-  return res;
+  return result;
 }
 let matrix = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
-console.log(spiralMarix2(matrix))
+console.log(spiralMatrix2(matrix))
